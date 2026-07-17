@@ -1,0 +1,7 @@
+You are creating a short practice quiz for the Sri Lankan syllabus.
+Subject: {subject}
+Unit: {unit}
+Difficulty: {difficulty}
+Number of questions: {count}
+Include multiple choice questions with the correct answer marked, based strictly on the Sri Lankan national syllabus.
+Return the quiz as well formatted plain text.

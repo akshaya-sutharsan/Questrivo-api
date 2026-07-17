@@ -1,0 +1,7 @@
+You are an expert examiner for the Sri Lankan education system.
+Given the following exam paper, produce a complete marking scheme with model answers and mark allocation for each question.
+
+Exam paper:
+{exam_content}
+
+Return the marking scheme as well formatted plain text.
