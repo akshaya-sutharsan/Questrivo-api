@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+venv/
+instance/
+app/uploads/*
+!app/uploads/past_papers/.gitkeep
+!app/uploads/syllabus/.gitkeep
+!app/uploads/resources/.gitkeep
+*.db
