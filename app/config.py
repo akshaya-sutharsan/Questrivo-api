@@ -4,12 +4,21 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+def _normalize_database_url(url):
+    """Convert Railway/Heroku-style mysql:// URLs for SQLAlchemy + PyMySQL."""
+    if url.startswith("mysql://"):
+        return url.replace("mysql://", "mysql+pymysql://", 1)
+    if url.startswith("mysql+pymysql://"):
+        return url
+    return url
+
+
 class Config:
     SECRET_KEY = os.getenv("SECRET_KEY", "dev")
 
-    database_url = os.getenv("DATABASE_URL")
+    database_url = os.getenv("DATABASE_URL") or os.getenv("MYSQL_URL")
     if database_url:
-        SQLALCHEMY_DATABASE_URI = database_url
+        SQLALCHEMY_DATABASE_URI = _normalize_database_url(database_url)
     else:
         db_user = os.getenv("DB_USER", "root")
         db_password = os.getenv("DB_PASSWORD", "root123")

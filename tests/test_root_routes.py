@@ -18,7 +18,7 @@ class RootRouteTests(unittest.TestCase):
         self.assertEqual(response.get_json()['status'], 'ok')
 
     def test_docs_returns_success(self):
-        response = self.client.get('/docs')
+        response = self.client.get('/docs/', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
 
